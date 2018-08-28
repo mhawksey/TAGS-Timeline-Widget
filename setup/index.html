@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://tags.hawksey.info/favicon.ico" />
+    <title>TAGS Widget - Setup</title>
+    <link rel="stylesheet" type="text/css" href="inc/style.css">
+</head>
+
+<body>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">TAGS Widget Setup</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3 class="header">About</h3>
+                <p class="caption ">On 23 March 2018 Twitter announced that it was
+                    <a href="https://twittercommunity.com/t/deprecating-widget-settings/102295" target="_blank">retiring search timeline widgets</a>, suggesting people moved to a
+                    <a href="https://developer.twitter.com/en/docs/tweets/curate-a-collection/overview/overview">Curate a Collection of Tweets</a>.</p>
+                <p>For
+                    <a href="https://tags.hawksey.info" target="_blank">TAGS</a> users I've created a custom widget to display the last 10 results from a TAGS Archive. This
+                    means you can display a search timeline which will automatically display new results when these are collected
+                    in TAGS. </p>
+                <p>To use either 
+                    <a href="https://tags.hawksey.info" target="_blank">setup a TAGS archive</a> or use an existing one. When the Google Sheet is shared so that 'anyone with a link can view' complete the configuration below and copy the embed code to your site.</p>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Note</span>
+                            <p>Given TAGS defaults to updating every hour the widget content currently only updates when the
+                                page is refreshed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6">
+                <h4>Configure</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <input id="d" name="d" type="text" class="validate" value="0AqGkLMU9sHmLdDJYMDZYR3FUcnVwWTkwLWpScnFIUXc">
+                                <label for="d">TAGS Sheet URL or ID</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="sheet" name="sheet" type="text" class="validate" value="Archive">
+                                <label for="sheet">Sheet Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <h6>Widget Options</h6>
+                            </div>
+                        </div>
+                        <div class="row valign-wrapper">
+                            <div class="col s5">
+                                <div class="label">Theme</div>
+                                <div class="radio">
+                                    <p>
+                                        <label>
+                                            <input id="themeLight" name="theme" type="radio" value="light" checked class="setting" />
+                                            <span>Light</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>
+                                            <input id="themeDark" name="theme" type="radio" value="dark" class="setting" />
+                                            <span>Dark</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="input-field col s5">
+                                <input id="linkColor" name="linkColor" type="text" class="validate setting" value="#1c94e0">
+                                <label for="linkColor">Link Color</label>
+                            </div>
+                            <div class="input-field col s2 ">
+                                <div class="label"> </div>
+                                <input id="linkColorPicker" type="color" class="validate setting ex" value="#1c94e0">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input id="widgetHeight" name="widgetHeight" type="number" class="validate setting" value="500">
+                                <label for="widgetHeight">Height (px)</label>
+                            </div>
+                            <div class="input-field col s8">
+                                <div class="label track">Tracking
+                                    <a class="tooltipped" data-position="left" data-tooltip="No cookies or personal information, just page views">
+                                        <i class="material-icons">information</i>
+                                    </a>
+
+                                </div>
+                                <label>
+                                    <input name="excludeTracking" type="checkbox" class="filled-in setting" />
+                                    <span>Opt-out </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <div>Stream Options</div>
+                                <p>
+                                    <label>
+                                        <input name="excludeThread" type="checkbox" class="filled-in setting" />
+                                        <span>Include previous tweets in the reply thread</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input id="includeRT" name="includeRT" type="checkbox" class="filled-in setting" />
+                                        <span>Include retweets</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input name="includeMedia" type="checkbox" class="filled-in setting" />
+                                        <span>Include media (videos, photos etc.)</span>
+                                    </label>
+                                </p>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <h4>Preview</h4>
+                <div id="preview">
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <ul class="collapsible">
+                    <li class="active">
+                        <div class="collapsible-header">
+                            <i class="material-icons">code</i>Embed Code</div>
+                        <div class="collapsible-body">
+                            <textarea id="embed" onclick="this.focus();this.select()" class="materialize-textarea" readonly="readonly"></textarea>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <p>Made by mhawksey</p>
+                <p>
+                    <a href="https://twitter.com/mhawksey?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="true" data-dnt="true">@mhawksey</a>
+                </p>
+            </div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+        <script type="text/javascript" src="inc/config.js"></script>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+
+</html>

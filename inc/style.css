@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+}
+
+body.loading:after {
+    /* with no content, nothing is rendered */
+    content: "";
+    position: fixed;
+    /* element stretched to cover during rotation an aspect ratio up to 1/10 */
+    top: -500%;
+    left: -500%;
+    right: -500%;
+    bottom: -500%;
+    z-index: 9999;
+    pointer-events: none;
+    /* to block content use: all */
+    /* background */
+    background-color: #fff;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADm0lEQVRYR+2WT2gcdRTHv+/9solC1N3ZRkxRRFApNlFqD9KDUMQ/DVisndmxplp6SNVW7cGTosIe9CQWQa2goKBotjszC62I2kspeGppbcWiHiRCpRY3mSSl3RKSeU9m09jNn92d2UtB/J0Gft/3fZ95835vfoRrvOga58d/B6BQPns9uPe5iDBsIh0ApBugMSJ8wxnsK23Jn22stu1PrmPJ/lSvQByspnfEt3Pvd/JJbH98DWAOMvTuleIFuGSAXbPcdTgjc0MK3UlE1bJtPT0PEITDUHypihf9grU/DcTWoNpvInMCjP6WcSJa32cmAc5nMtH60hN95+oAjh9+RMALVwze8Bzr7aQQbhCOqmJbUr0gGjMwLylpP5S6FwAOEOBeNdFKZsaMfLU9O9nKuFD++xZh/pPBJikARGbA3APR0zM98mAdwA3GP1TlPY0mcZkM6NWynf0cRPPlW7IKwYQDJS9x8gUh4QSizJDn3lCdr4AXbiPCaBOjMwTdd7lnpvT15tW1Rk3BD3cDSNUz8ZsDtQ2ee9vl2KsOsPOzsesu9t70OxFWN30bQQ2gb9XgqGp0TLhnrEtnH46bN1UFBN97rrXpajGuPDle+DipHIq7NKmhQITBnFRf1wkFnptzFgE4QfgaK/6A4o6IpMjgTCrTFGIBPggc6+VFACs1YQrPVFIl2ts48OZPgR9uVuBQKqdOxSIPeO6qY4sqUCwqnxkY/xEw93bqmyhOZCo3mb/54+dpdlkT2v7EWhb9AczZRGYdiAT4InCsHY2hizq+UA4HhVFi4J4O/NuHCG303NzRpgBPVi7kWdQikmHVaC+DrfauCRWCk55rrV+qXlKB6TuFZ39NNdsT5gfrkLc1/11LgHjT9iffZegrSX0T6g56jrVlJe2yqbfxiHatGp8aJdJ/p1XCJCvKBFJV0vsqdt9fiQDqIlVyg3BERV8H8+0dA4jMkTGPlu3ckWYeree+Kj1VmV4nkXwCxv1pQAQSkfIzfsEqtYprCeD6E49F0HcYPJgmOQQ1Yt1RdvJBu7glp0C72UwPqMgjEcn21Injnx3wWxfx8AE7e7Jd8nifCpWphyDypgBrAOnr+AgKamrwHkWX3lq4bCQCiEWFsnbDhM8CtBuKZcOilZEqzjH00zmW/c06PVUP2P70XUSyCaobCNFaAd3KghuFIUp6gdRUGfoLKZ+KKDo8+HP+eLEY37Q7W4lvP53Zt4/6H+AfOERlgAAgdRUAAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+body.dark{
+    background-color: black;
+}
+
+#error {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font: 14px "Open Sans", Arial, Helvetica, sans-serif; 
+  }
+
+footer div{
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: right;
+    padding-top: 5px;
+}
+
+#chart_div.load{
+    width: -webkit-calc(100% - 20px);
+    width:    -moz-calc(100% - 20px);
+    width:         calc(100% - 20px);
+}
+
+/* Table Formating */
+.google-visualization-table-table{
+    background: transparent !important;
+}
+.headerRow {
+    display: none
+}
+.row,
+.cell {
+    border-right: none !important;
+}
+
+.over {
+    background-color: transparent !important;
+}
