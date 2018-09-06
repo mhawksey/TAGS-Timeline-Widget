@@ -125,7 +125,18 @@ function handleSampleDataQueryResponse(response) {
     google.visualization.events.addListener(table, 'ready', function () {
         twttr.widgets.load();
         
-        twttr.events.bind('rendered', function (event) {
+        twttr.events.bind('loaded', function (event) {
+            event.widgets.forEach(function (widget) {
+                if(widget.className === 'twitter-tweet twitter-tweet-error'){
+                    widget.parentNode.style.display = 'none';
+                }
+                if (widget.id){
+                    var style = document.createElement('style');
+                    style.innerHTML = '.SandboxRoot.env-bp-min, .SandboxRoot.env-bp-min .TweetAction-stat, .SandboxRoot.env-bp-min .TweetAuthor-screenName, .SandboxRoot.env-bp-min .Tweet-alert, .SandboxRoot.env-bp-min .Tweet-authorScreenName, .SandboxRoot.env-bp-min .Tweet-card, .SandboxRoot.env-bp-min .Tweet-inReplyTo, .SandboxRoot.env-bp-min .Tweet-metadata { font-size: 0.9em; }';
+                    document.getElementById(widget.id).shadowRoot.appendChild(style)
+                }
+            });
+           // $("blockquote.twitter-tweet-error").parents("tr").css('display','none');
             // host is the element that holds the shadow root:
             /* wasn't working in Edge... 
             const hosts = [...document.getElementsByTagName('twitterwidget')];
@@ -135,13 +146,6 @@ function handleSampleDataQueryResponse(response) {
                 style.innerHTML = '.SandboxRoot.env-bp-min, .SandboxRoot.env-bp-min .TweetAction-stat, .SandboxRoot.env-bp-min .TweetAuthor-screenName, .SandboxRoot.env-bp-min .Tweet-alert, .SandboxRoot.env-bp-min .Tweet-authorScreenName, .SandboxRoot.env-bp-min .Tweet-card, .SandboxRoot.env-bp-min .Tweet-inReplyTo, .SandboxRoot.env-bp-min .Tweet-metadata { font-size: 0.9em; }';
                 el.shadowRoot.appendChild(style)
             }); */
-            var hosts = document.getElementsByTagName('twitterwidget');
-            var hostList = [].slice.call(hosts);
-            hostList.forEach(function(el){
-                var style = document.createElement('style');
-                style.innerHTML = '.SandboxRoot.env-bp-min, .SandboxRoot.env-bp-min .TweetAction-stat, .SandboxRoot.env-bp-min .TweetAuthor-screenName, .SandboxRoot.env-bp-min .Tweet-alert, .SandboxRoot.env-bp-min .Tweet-authorScreenName, .SandboxRoot.env-bp-min .Tweet-card, .SandboxRoot.env-bp-min .Tweet-inReplyTo, .SandboxRoot.env-bp-min .Tweet-metadata { font-size: 0.9em; }';
-                el.shadowRoot.appendChild(style)
-            })
             // when tweets have rendered remove loader
             loaded();
         });
